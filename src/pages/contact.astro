@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+const igPersonal = "https://www.instagram.com/lopmxlpm";
+const igBrand = "https://www.instagram.com/Skate_Matters";
+---
+<BaseLayout title="聯絡我們">
+  <section class="contact-page">
+    <h1>預約與查詢</h1>
+    <p class="intro">
+      想安排課程、了解價目，或是有任何問題，歡迎直接用 WhatsApp 聯絡我們，
+      通常會在當日內回覆。
+    </p>
+
+    <div class="contact-card">
+      <h2>WhatsApp</h2>
+      <p>最快的聯絡方式，可以直接留言想上的課程類型與方便時間</p>
+      <WhatsAppButton message="你好，我想查詢滑板課程" />
+    </div>
+
+    <div class="social-row">
+      <a href={igPersonal} target="_blank" rel="noopener" class="ig-link">
+        個人 Instagram @lopmxlpm
+      </a>
+      <a href={igBrand} target="_blank" rel="noopener" class="ig-link">
+        品牌 Instagram @Skate_Matters
+      </a>
+    </div>
+
+    <div class="faq">
+      <h2>常見問題</h2>
+      <details>
+        <summary>需要自備滑板嗎？</summary>
+        <p>初學者可以先使用教練提供的滑板，熟悉後再考慮購買自己的裝備。</p>
+      </details>
+      <details>
+        <summary>上課地點在哪裡？</summary>
+        <p>可安排學校、私人場地，或約定時間到指定滑板場，詳情可透過 WhatsApp 討論。</p>
+      </details>
+      <details>
+        <summary>可以團體報名嗎？</summary>
+        <p>可以，適合朋友、親子或學校團體，詳見團體班頁面或直接查詢。</p>
+      </details>
+    </div>
+  </section>
+
+  <style>
+    .contact-page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.2rem;
+      text-align: center;
+    }
+    .contact-page h1 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: var(--seal-red);
+      margin-bottom: 0.8rem;
+    }
+    .intro {
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+    .contact-card {
+      background: #fff;
+      border: 2px solid var(--wood);
+      padding: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 2rem;
+    }
+    .contact-card h2 {
+      margin-top: 0;
+      color: var(--seal-red);
+    }
+    .contact-card p {
+      margin-bottom: 1.2rem;
+    }
+    .social-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .ig-link {
+      border: 2px solid var(--wood);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none !important;
+      color: var(--indigo) !important;
+      font-size: 0.9rem;
+    }
+    .faq {
+      text-align: left;
+    }
+    .faq h2 {
+      text-align: center;
+      color: var(--seal-red);
+      margin-bottom: 1.5rem;
+    }
+    .faq details {
+      background: #fff;
+      border: 1px solid var(--wood);
+      padding: 0.9rem 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .faq p {
+      margin: 0.8rem 0 0;
+      line-height: 1.6;
+    }
+  </style>
+</BaseLayout>
