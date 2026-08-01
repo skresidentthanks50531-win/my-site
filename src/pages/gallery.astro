@@ -5,6 +5,8 @@ import WhatsAppButton from "../components/WhatsAppButton.astro";
 const igPersonal = "https://www.instagram.com/lopmxlpm";
 const igBrand = "https://www.instagram.com/Skate_Matters";
 
+// 高互動精選貼文，網站每次載入會隨機打亂順序顯示
+// 之後有新的熱門貼文，把網址加進這個陣列就好
 const posts = [
   "https://www.instagram.com/p/DWYFvGrEeyG/",
   "https://www.instagram.com/p/DXI7HUckdfe/",
@@ -17,7 +19,7 @@ const posts = [
   <section class="gallery-page">
     <h1>作品集</h1>
     <p class="intro">
-      精選教學、活動與品牌日常，更多內容歡迎追蹤 Instagram
+      精選熱門教學、活動與品牌日常，更多內容歡迎追蹤 Instagram
     </p>
 
     <div class="follow-row">
@@ -29,7 +31,7 @@ const posts = [
       </a>
     </div>
 
-    <div class="ig-embed-grid">
+    <div id="ig-grid" class="ig-embed-grid">
       {posts.map((url) => (
         <div class="ig-embed-item">
           <blockquote
@@ -48,6 +50,19 @@ const posts = [
   </section>
 
   <script async src="//www.instagram.com/embed.js"></script>
+
+  <script>
+    // 每次載入頁面時，把貼文卡片的顯示順序隨機打亂
+    const grid = document.getElementById("ig-grid");
+    if (grid) {
+      const items = Array.from(grid.children);
+      for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+      }
+      items.forEach((item) => grid.appendChild(item));
+    }
+  </script>
 
   <style>
     .gallery-page {
