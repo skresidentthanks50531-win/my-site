@@ -1,0 +1,109 @@
+---
+// 這是全站共用的版面框架，每個頁面都會「包」在這個框架裡
+// 之後想改全站的 header、字體、配色，只要改這一個檔案，不用每頁改
+interface Props {
+  title: string; // 每個頁面自己傳入不同的網頁標題
+}
+const { title } = Astro.props;
+---
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | Skate Matters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="/" class="brand-mark">Skate Matters</a>
+      <div class="nav-links">
+        <a href="/about">關於教練</a>
+        <a href="/coaching/kids">兒童班</a>
+        <a href="/coaching/adult">成人班</a>
+        <a href="/coaching/group">團體班</a>
+        <a href="/brand">品牌</a>
+        <a href="/gallery">作品集</a>
+        <a href="/contact">聯絡</a>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+      <!-- slot 是每個頁面自己的內容會插進來的位置 -->
+    </main>
+
+    <footer class="site-footer">
+      <p>Skate Matters © 2026 · 香港註冊滑板私人教練</p>
+    </footer>
+
+    <style is:global>
+      :root {
+        --indigo: #1c2b45;
+        --sunset: #c1512e;
+        --sunset-light: #e0946a;
+        --cream: #f2e6d0;
+        --wood: #6b4a30;
+        --seal-red: #a83226;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        font-family: "Noto Serif TC", serif;
+        background: var(--cream);
+        color: var(--indigo);
+      }
+      a { color: inherit; }
+      a.btn-seal {
+        display: inline-block;
+        background-color: var(--seal-red) !important;
+        color: var(--cream) !important;
+        text-decoration: none !important;
+        font-weight: 600;
+        padding: 0.9rem 2rem;
+        border-radius: 4px;
+        border: 2px solid var(--indigo);
+        letter-spacing: 0.05em;
+      }
+    </style>
+
+    <style>
+      .site-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 1rem 1.5rem;
+        background: var(--indigo);
+      }
+      .brand-mark {
+        color: var(--cream) !important;
+        text-decoration: none !important;
+        font-weight: 900;
+        font-size: 1.2rem;
+      }
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+      .nav-links a {
+        color: var(--cream) !important;
+        text-decoration: none !important;
+        opacity: 0.85;
+      }
+      .nav-links a:hover { opacity: 1; }
+      .site-footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: var(--indigo);
+        color: var(--cream);
+        font-size: 0.85rem;
+        opacity: 0.8;
+      }
+    </style>
+  </body>
+</html>
