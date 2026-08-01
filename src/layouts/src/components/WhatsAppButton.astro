@@ -1,0 +1,18 @@
+---
+// 這個按鈕可以在不同頁面帶不同的預設訊息
+// 用法：<WhatsAppButton message="你好，我想查詢兒童滑板班" />
+interface Props {
+  message?: string;
+}
+const { message = "你好，我想查詢滑板課程" } = Astro.props;
+const phone = "85291688089";
+const encodedMessage = encodeURIComponent(message);
+---
+
+  href={`https://wa.me/${phone}?text=${encodedMessage}`}
+  class="btn-seal"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  WhatsApp 查詢
+</a>
