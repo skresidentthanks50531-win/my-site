@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WhatsAppButton from "../../components/WhatsAppButton.astro";
+
+const groupTypes = [
+  {
+    title: "小朋友團體班",
+    desc: "2-4人一組，讓小朋友在玩伴陪伴下互相鼓勵，一起建立平衡感與自信心",
+    posts: [
+      "https://www.instagram.com/p/DXI7HUckdfe/",
+      "https://www.instagram.com/p/DbFNslVkTAe/",
+    ],
+  },
+  {
+    title: "學校合作班",
+    desc: "與學校合作的課堂或課後教學，將滑板納入體育活動選項，訓練體能與協調力",
+    posts: ["https://www.instagram.com/p/DWYFvGrEeyG/"],
+  },
+  {
+    title: "青少年體驗班",
+    desc: "滑板現已是奧運正式項目，透過體驗課讓青少年感受這項運動的樂趣與挑戰，同時鍛鍊體能與膽量",
+    posts: ["https://www.instagram.com/p/DaRvsE9RAwu/"],
+  },
+];
+---
+<BaseLayout title="團體班">
+  <section class="coaching-page">
+    <h1>團體滑板課程</h1>
+    <p class="intro">
+      滑板已成為新一代奧運正式項目，不只是興趣，更是能鍛鍊體能、
+      平衡感與自信心的運動。團體班讓學員在同伴陪伴下互相鼓勵，
+      更快突破、更享受過程。
+    </p>
+
+    {groupTypes.map((g) => (
+      <div class="group-block">
+        <h2>{g.title}</h2>
+        <p>{g.desc}</p>
+        <div class="ig-embed-grid">
+          {g.posts.map((url) => (
+            <div class="ig-embed-item">
+              <blockquote
+                class="instagram-media"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+              ></blockquote>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <div class="cta-block">
+      <p>想了解團體人數、場地與活動安排，歡迎直接查詢</p>
+      <WhatsAppButton message="你好，我想查詢團體滑板班" />
+    </div>
+  </section>
+
+  <script async src="//www.instagram.com/embed.js"></script>
+
+  <style>
+    .coaching-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.2rem;
+      text-align: center;
+    }
+    .coaching-page h1 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: var(--seal-red);
+      margin-bottom: 0.8rem;
+    }
+    .intro {
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+    .group-block {
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+    .group-block h2 {
+      color: var(--seal-red);
+      border-bottom: 3px solid var(--sunset);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.6rem;
+    }
+    .group-block p {
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+    }
+    .ig-embed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+    .ig-embed-item {
+      width: 100%;
+      max-width: 340px;
+    }
+    .cta-block {
+      background: var(--indigo);
+      color: var(--cream);
+      padding: clamp(1.5rem, 5vw, 2rem);
+      text-align: center;
+    }
+    .cta-block p {
+      margin-bottom: 1rem;
+    }
+  </style>
+</BaseLayout>
