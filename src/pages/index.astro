@@ -1,184 +1,89 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
 const services = [
-  { name: "個人一對一課程", desc: "適合初學者到進階，客製化教學進度" },
-  { name: "小組課程", desc: "2-4人一組，適合朋友、親子一起學" },
-  { name: "學校 / 機構課程", desc: "與學校或機構合作，團體教學方案" },
-  { name: "企業 / 活動體驗", desc: "公司活動、生日會等滑板體驗活動" },
-];
-
-const whatsappLink = "https://wa.me/85291688089";
-const igPersonal = "https://www.instagram.com/lopmxlpm";
-const igBrand = "https://www.instagram.com/Skate_Matters";
-
-// 精選的 IG 貼文
-const highlights = [
-  "https://www.instagram.com/p/DWYFvGrEeyG/",
-  "https://www.instagram.com/p/DXI7HUckdfe/",
-  "https://www.instagram.com/p/C37YELFr46c/",
-  "https://www.instagram.com/p/DbFNslVkTAe/",
-  "https://www.instagram.com/p/DaRvsE9RAwu/",
+  { name: "個人一對一課程", desc: "適合初學者到進階，客製化教學進度", link: "/coaching/adult" },
+  { name: "小組課程", desc: "2-4人一組，適合朋友、親子一起學", link: "/coaching/group" },
+  { name: "學校 / 機構課程", desc: "與學校或機構合作，團體教學方案", link: "/coaching/group" },
+  { name: "兒童班", desc: "專為兒童設計的滑板入門課程", link: "/coaching/kids" },
 ];
 ---
-<html lang="zh-Hant">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Skate Matters | 香港滑板私人教練</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="hero">
-      <div class="hero-frame">
-        <p class="eyebrow">香港 · 私人滑板教練</p>
-        <h1>Skate Matters</h1>
-        <p class="tagline">學校、私人場地、企業活動皆可安排</p>
-        <div class="cta-row">
-          <a class="btn-seal" href="#services">找教練</a>
-          <a class="btn-seal btn-outline" href="#gallery">逛品牌</a>
-        </div>
+<BaseLayout title="首頁">
+  <header class="hero">
+    <div class="hero-frame">
+      <p class="eyebrow">香港 · 私人滑板教練</p>
+      <h1>Skate Matters</h1>
+      <p class="tagline">學校、私人場地、企業活動皆可安排</p>
+      <div class="cta-row">
+        <a class="btn-seal" href="#services">找教練</a>
+        <a class="btn-seal btn-outline" href="/brand">逛品牌</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <section id="services" class="services">
-      <h2>教學項目</h2>
-      <div class="service-grid">
-        {services.map((s) => (
-          <div class="service-card">
-            <h3>{s.name}</h3>
-            <p>{s.desc}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section id="gallery" class="portfolio">
-      <h2>作品集</h2>
-      <div class="ig-row">
-        <a class="ig-link" href={igPersonal} target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-            <path d="M12 2c-2.7 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.15-.55.55-.89 1.11-1.15 1.77-.25.64-.42 1.37-.47 2.43C2.01 8.94 2 9.3 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.15 1.77.55.55 1.11.89 1.77 1.15.64.25 1.37.42 2.43.47C8.94 21.99 9.3 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.15.55-.55.89-1.11 1.15-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.42.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.15-1.77-.55-.55-1.11-.89-1.77-1.15-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.7 2 12 2zm0 1.8c2.65 0 2.97.01 4.02.06.97.04 1.5.21 1.85.34.46.18.79.4 1.14.75.35.35.57.68.75 1.14.13.35.3.88.34 1.85.05 1.05.06 1.37.06 4.02s-.01 2.97-.06 4.02c-.04.97-.21 1.5-.34 1.85-.18.46-.4.79-.75 1.14-.35.35-.68.57-1.14.75-.35.13-.88.3-1.85.34-1.05.05-1.37.06-4.02.06s-2.97-.01-4.02-.06c-.97-.04-1.5-.21-1.85-.34-.46-.18-.79-.4-1.14-.75-.35-.35-.57-.68-.75-1.14-.13-.35-.3-.88-.34-1.85C3.81 14.97 3.8 14.65 3.8 12s.01-2.97.06-4.02c.04-.97.21-1.5.34-1.85.18-.46.4-.79.75-1.14.35-.35.68-.57 1.14-.75.35-.13.88-.3 1.85-.34C9.03 3.81 9.35 3.8 12 3.8zm0 3.05a5.15 5.15 0 100 10.3 5.15 5.15 0 000-10.3zm0 8.5a3.35 3.35 0 110-6.7 3.35 3.35 0 010 6.7zm5.35-8.7a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
-          </svg>
-          <span>個人作品 @lopmxlpm</span>
+  <section id="services" class="services">
+    <h2>教學項目</h2>
+    <div class="service-grid">
+      {services.map((s) => (
+        <a href={s.link} class="service-card">
+          <h3>{s.name}</h3>
+          <p>{s.desc}</p>
         </a>
-        <a class="ig-link" href={igBrand} target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-            <path d="M12 2c-2.7 0-3.06.01-4.12.06-1.06.05-1.79.22-2.43.47-.66.26-1.22.6-1.77 1.15-.55.55-.89 1.11-1.15 1.77-.25.64-.42 1.37-.47 2.43C2.01 8.94 2 9.3 2 12s.01 3.06.06 4.12c.05 1.06.22 1.79.47 2.43.26.66.6 1.22 1.15 1.77.55.55 1.11.89 1.77 1.15.64.25 1.37.42 2.43.47C8.94 21.99 9.3 22 12 22s3.06-.01 4.12-.06c1.06-.05 1.79-.22 2.43-.47.66-.26 1.22-.6 1.77-1.15.55-.55.89-1.11 1.15-1.77.25-.64.42-1.37.47-2.43.05-1.06.06-1.42.06-4.12s-.01-3.06-.06-4.12c-.05-1.06-.22-1.79-.47-2.43-.26-.66-.6-1.22-1.15-1.77-.55-.55-1.11-.89-1.77-1.15-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.7 2 12 2zm0 1.8c2.65 0 2.97.01 4.02.06.97.04 1.5.21 1.85.34.46.18.79.4 1.14.75.35.35.57.68.75 1.14.13.35.3.88.34 1.85.05 1.05.06 1.37.06 4.02s-.01 2.97-.06 4.02c-.04.97-.21 1.5-.34 1.85-.18.46-.4.79-.75 1.14-.35.35-.68.57-1.14.75-.35.13-.88.3-1.85.34-1.05.05-1.37.06-4.02.06s-2.97-.01-4.02-.06c-.97-.04-1.5-.21-1.85-.34-.46-.18-.79-.4-1.14-.75-.35-.35-.57-.68-.75-1.14-.13-.35-.3-.88-.34-1.85C3.81 14.97 3.8 14.65 3.8 12s.01-2.97.06-4.02c.04-.97.21-1.5.34-1.85.18-.46.4-.79.75-1.14.35-.35.68-.57 1.14-.75.35-.13.88-.3 1.85-.34C9.03 3.81 9.35 3.8 12 3.8zm0 3.05a5.15 5.15 0 100 10.3 5.15 5.15 0 000-10.3zm0 8.5a3.35 3.35 0 110-6.7 3.35 3.35 0 010 6.7zm5.35-8.7a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/>
-          </svg>
-          <span>品牌 @Skate_Matters</span>
-        </a>
-      </div>
+      ))}
+    </div>
+  </section>
 
-      <div class="ig-embed-grid">
-        {highlights.map((url) => (
-          <div class="ig-embed-item">
-            <blockquote
-              class="instagram-media"
-              data-instgrm-permalink={url}
-              data-instgrm-version="14"
-            ></blockquote>
-          </div>
-        ))}
-      </div>
-    </section>
+  <footer class="contact">
+    <h2>預約查詢</h2>
+    <p>歡迎透過 WhatsApp 直接查詢課程時間與價格</p>
+    <WhatsAppButton message="你好，我想查詢滑板課程" />
+  </footer>
 
-    <footer id="contact" class="contact">
-      <h2>預約查詢</h2>
-      <p>歡迎透過 WhatsApp 直接查詢課程時間與價格</p>
-      <a class="btn-seal" href={whatsappLink} target="_blank" rel="noopener">
-        WhatsApp：9168 8089
-      </a>
-    </footer>
+  <style>
+    .hero {
+      background: linear-gradient(to bottom, var(--indigo) 0%, var(--sunset-light) 55%, var(--cream) 100%);
+      padding: clamp(2.5rem, 8vw, 5rem) 1.2rem clamp(2rem, 6vw, 4rem);
+      text-align: center;
+    }
+    .hero-frame {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 4px double var(--wood);
+      padding: clamp(1.5rem, 5vw, 2.5rem) 1.2rem;
+      background: rgba(242, 230, 208, 0.9);
+    }
+    .eyebrow { letter-spacing: 0.3em; font-size: 0.8rem; color: var(--wood); margin: 0 0 0.5rem; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 3rem); font-weight: 900; margin: 0 0 0.5rem; color: var(--seal-red); }
+    .tagline { color: var(--indigo); margin-bottom: 1.8rem; font-size: clamp(0.9rem, 3vw, 1rem); }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    a.btn-outline { background-color: transparent !important; color: var(--indigo) !important; border: 2px solid var(--seal-red); }
 
-    <script async src="//www.instagram.com/embed.js"></script>
+    .services { max-width: 900px; margin: 0 auto; padding: clamp(2rem, 6vw, 3.5rem) 1.2rem; text-align: center; }
+    .services h2, .contact h2 {
+      font-size: clamp(1.3rem, 4vw, 1.6rem);
+      border-bottom: 3px solid var(--sunset);
+      display: inline-block;
+      padding-bottom: 0.4rem;
+      margin-bottom: 2rem;
+    }
+    .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; text-align: left; }
+    .service-card {
+      background: #fff;
+      border: 2px solid var(--wood);
+      padding: 1.2rem;
+      text-decoration: none !important;
+      color: var(--indigo) !important;
+      display: block;
+    }
+    .service-card h3 { margin-top: 0; color: var(--seal-red); font-size: 1.05rem; }
 
-    <style>
-      :root {
-        --indigo: #1c2b45;
-        --sunset: #c1512e;
-        --sunset-light: #e0946a;
-        --cream: #f2e6d0;
-        --wood: #6b4a30;
-        --seal-red: #a83226;
-      }
+    .contact { background: var(--indigo); color: var(--cream); text-align: center; padding: clamp(2rem, 6vw, 3.5rem) 1.2rem; }
+    .contact h2 { border-bottom-color: var(--sunset-light); }
 
-      * { box-sizing: border-box; }
-      html { -webkit-text-size-adjust: 100%; }
-
-      body {
-        margin: 0;
-        font-family: "Noto Serif TC", serif;
-        background: var(--cream);
-        color: var(--indigo);
-        overflow-x: hidden;
-      }
-
-      .hero {
-        background: linear-gradient(to bottom, var(--indigo) 0%, var(--sunset-light) 55%, var(--cream) 100%);
-        padding: clamp(2.5rem, 8vw, 5rem) 1.2rem clamp(2rem, 6vw, 4rem);
-        text-align: center;
-      }
-
-      .hero-frame {
-        max-width: 600px;
-        margin: 0 auto;
-        border: 4px double var(--wood);
-        padding: clamp(1.5rem, 5vw, 2.5rem) 1.2rem;
-        background: rgba(242, 230, 208, 0.9);
-      }
-
-      .eyebrow { letter-spacing: 0.3em; font-size: 0.8rem; color: var(--wood); margin: 0 0 0.5rem; }
-      .hero h1 { font-size: clamp(2rem, 8vw, 3rem); font-weight: 900; margin: 0 0 0.5rem; color: var(--seal-red); }
-      .tagline { color: var(--indigo); margin-bottom: 1.8rem; font-size: clamp(0.9rem, 3vw, 1rem); }
-
-      .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-
-      a.btn-seal {
-        display: inline-block;
-        background-color: var(--seal-red) !important;
-        color: var(--cream) !important;
-        text-decoration: none !important;
-        font-weight: 600;
-        padding: 0.9rem 2rem;
-        border-radius: 4px;
-        border: 2px solid var(--indigo);
-        letter-spacing: 0.05em;
-      }
-
-      a.btn-outline { background-color: transparent !important; color: var(--indigo) !important; border: 2px solid var(--seal-red); }
-
-      .services, .portfolio { max-width: 900px; margin: 0 auto; padding: clamp(2rem, 6vw, 3.5rem) 1.2rem; text-align: center; }
-
-      .services h2, .portfolio h2, .contact h2 {
-        font-size: clamp(1.3rem, 4vw, 1.6rem);
-        border-bottom: 3px solid var(--sunset);
-        display: inline-block;
-        padding-bottom: 0.4rem;
-        margin-bottom: 2rem;
-      }
-
-      .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.2rem; text-align: left; }
-      .service-card { background: #fff; border: 2px solid var(--wood); padding: 1.2rem; }
-      .service-card h3 { margin-top: 0; color: var(--seal-red); font-size: 1.05rem; }
-
-      .ig-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem; }
-      .ig-link {
-        display: flex; align-items: center; gap: 0.5rem;
-        color: var(--indigo) !important; text-decoration: none !important;
-        border: 2px solid var(--wood); padding: 0.6rem 1.2rem; border-radius: 999px; font-size: 0.95rem;
-      }
-
-      .ig-embed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; justify-items: center; }
-      .ig-embed-item { width: 100%; max-width: 340px; }
-
-      .contact { background: var(--indigo); color: var(--cream); text-align: center; padding: clamp(2rem, 6vw, 3.5rem) 1.2rem; }
-      .contact h2 { border-bottom-color: var(--sunset-light); }
-      .contact .btn-seal { margin-top: 1rem; }
-
-      @media (max-width: 480px) {
-        .cta-row { flex-direction: column; align-items: center; }
-        a.btn-seal { width: 100%; max-width: 280px; text-align: center; }
-      }
-    </style>
-  </body>
-</html>
+    @media (max-width: 480px) {
+      .cta-row { flex-direction: column; align-items: center; }
+      a.btn-seal { width: 100%; max-width: 280px; text-align: center; }
+    }
+  </style>
+</BaseLayout>
