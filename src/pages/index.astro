@@ -1,5 +1,5 @@
 ---
-// 這裡放要顯示的服務項目資料，之後想加/改項目，只要改這個列表就好
+// 服務項目清單，之後要加/改項目只要改這裡
 const services = [
   { name: "個人一對一課程", desc: "適合初學者到進階，客製化教學進度" },
   { name: "小組課程", desc: "2-4人一組，適合朋友、親子一起學" },
@@ -14,14 +14,20 @@ const whatsappLink = "https://wa.me/85291688089";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skate Matters | 香港滑板私人教練</title>
+    <!-- 引入襯線字體，營造書法/浮世繪風格的文字質感 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="hero">
-      <h1>Skate Matters</h1>
-      <p>香港註冊滑板私人教練 — 學校、私人場地、企業活動皆可安排</p>
-      <a class="btn-primary" href={whatsappLink} target="_blank">
-        WhatsApp 立即查詢
-      </a>
+      <div class="hero-frame">
+        <p class="eyebrow">香港 · 私人滑板教練</p>
+        <h1>Skate Matters</h1>
+        <p class="tagline">學校、私人場地、企業活動皆可安排</p>
+        <a class="btn-seal" href={whatsappLink} target="_blank">
+          WhatsApp 查詢
+        </a>
+      </div>
     </header>
 
     <section class="services">
@@ -45,70 +51,62 @@ const whatsappLink = "https://wa.me/85291688089";
     <footer class="contact">
       <h2>預約查詢</h2>
       <p>歡迎透過 WhatsApp 直接查詢課程時間與價格</p>
-      <a class="btn-primary" href={whatsappLink} target="_blank">
-        WhatsApp：9168 8089
+      <a class="btn-seal" href={whatsappLink} target="_blank">
+        9168 8089
       </a>
     </footer>
 
     <style>
+      /* 全域色票：靛藍夜空、夕陽橘紅、米色木紋、印章紅 */
+      :root {
+        --indigo: #1c2b45;
+        --sunset: #c1512e;
+        --sunset-light: #e0946a;
+        --cream: #f2e6d0;
+        --wood: #6b4a30;
+        --seal-red: #a83226;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: system-ui, sans-serif;
         margin: 0;
-        color: #1a1a1a;
-        background: #fafafa;
+        font-family: "Noto Serif TC", serif;
+        background: var(--cream);
+        color: var(--indigo);
       }
+
+      /* Hero 區：模擬夕陽漸層天空 */
       .hero {
+        background: linear-gradient(
+          to bottom,
+          var(--indigo) 0%,
+          var(--sunset-light) 55%,
+          var(--cream) 100%
+        );
+        padding: 5rem 1.5rem 4rem;
         text-align: center;
-        padding: 4rem 1.5rem;
-        background: #111;
-        color: #fff;
       }
-      .hero h1 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-      }
-      .hero p {
-        margin-bottom: 1.5rem;
-        opacity: 0.85;
-      }
-      .btn-primary {
-        display: inline-block;
-        background: #25d366;
-        color: #fff;
-        padding: 0.8rem 1.8rem;
-        border-radius: 999px;
-        text-decoration: none;
-        font-weight: bold;
-      }
-      .services, .portfolio, .contact {
-        max-width: 800px;
+
+      /* 木牌匾風格的邊框，包住標題文字 */
+      .hero-frame {
+        max-width: 600px;
         margin: 0 auto;
-        padding: 3rem 1.5rem;
-        text-align: center;
+        border: 4px double var(--wood);
+        padding: 2.5rem 1.5rem;
+        background: rgba(242, 230, 208, 0.9);
       }
-      .service-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1.2rem;
-        margin-top: 1.5rem;
-        text-align: left;
+
+      .eyebrow {
+        letter-spacing: 0.3em;
+        font-size: 0.85rem;
+        color: var(--wood);
+        margin: 0 0 0.5rem;
       }
-      .service-card {
-        background: #fff;
-        border: 1px solid #e5e5e5;
-        border-radius: 12px;
-        padding: 1.2rem;
-      }
-      .service-card h3 {
-        margin-top: 0;
-      }
-      .contact {
-        background: #111;
-        color: #fff;
-      }
-      .contact .btn-primary {
-        margin-top: 1rem;
-      }
-    </style>
-  </body>
-</html>
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 900;
+        margin: 0 0
