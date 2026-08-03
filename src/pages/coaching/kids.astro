@@ -1,0 +1,141 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import WhatsAppButton from "../../components/WhatsAppButton.astro";
+
+const ctaMessage = "你好，我想查詢兒童滑板班";
+
+const pricing = [
+  { type: "一對一", price: "$500 / 小時", note: "度身訂造教學進度，適合想快速進步的小朋友" },
+  { type: "小組課", price: "$350 / 位", note: "按人數收費，小朋友與成人同價" },
+  { type: "4堂套票", price: "優惠價（待補）", note: "適合已決定持續學習的學員" },
+];
+---
+<BaseLayout title="兒童班">
+  <section class="coaching-page">
+    <h1>兒童滑板課程</h1>
+    <p class="intro">
+      為小朋友設計的滑板課程，循序漸進建立平衡感、協調力與自信心，
+      在安全的教學環境下享受滑板的樂趣。
+    </p>
+
+    <div class="cta-block cta-top">
+      <WhatsAppButton message={ctaMessage} />
+    </div>
+
+    <div class="info-block">
+      <h2>價目表</h2>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th>課程</th>
+            <th>價格</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pricing.map((p) => (
+            <tr>
+              <td>{p.type}</td>
+              <td>{p.price}</td>
+              <td>{p.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-block">
+      <h2>付款與取消政策</h2>
+      <ul>
+        <li>收費方式：現金 / 轉數快 / PayMe / 支付寶 / 銀行轉賬</li>
+        <li>請於上堂前完成找數</li>
+        <li>取消堂數須提前12小時通知</li>
+        <li>少於12小時通知取消，將收取全費</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h2>安全說明</h2>
+      <p>
+        課程採循序漸進教學，按小朋友的能力調整難度與進度。
+        建議學員配戴頭盔及護膝護肘等保護裝備，教練會全程在旁指導，
+        確保學習過程安全放心。
+      </p>
+    </div>
+
+    <div class="info-block">
+      <h2>教練資歷</h2>
+      <ul>
+        <li>中國香港滾軸運動及滑板總會一級註冊教練（2020年起）</li>
+        <li>自2018年教學至今</li>
+        <li>教學經驗超過100位學生</li>
+      </ul>
+    </div>
+
+    <div class="cta-block cta-bottom">
+      <p>想了解更多兒童班詳情，歡迎直接查詢</p>
+      <WhatsAppButton message={ctaMessage} />
+    </div>
+  </section>
+
+  <style>
+    .coaching-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.2rem;
+      text-align: center;
+    }
+    .coaching-page h1 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: var(--seal-red);
+      margin-bottom: 0.8rem;
+    }
+    .intro {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .cta-block {
+      background: var(--indigo);
+      color: var(--cream);
+      padding: clamp(1.5rem, 5vw, 2rem);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .cta-block p {
+      margin-bottom: 1rem;
+    }
+    .info-block {
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+    .info-block h2 {
+      color: var(--seal-red);
+      border-bottom: 3px solid var(--sunset);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .info-block p {
+      line-height: 1.7;
+    }
+    .info-block ul {
+      line-height: 1.9;
+      padding-left: 1.4rem;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    .price-table th,
+    .price-table td {
+      border: 1px solid var(--wood);
+      padding: 0.7rem 0.9rem;
+      text-align: left;
+    }
+    .price-table th {
+      background: var(--indigo);
+      color: var(--cream);
+    }
+  </style>
+</BaseLayout>

@@ -1,1 +1,11 @@
-
+---
+interface Props {
+  message: string;
+}
+const { message } = Astro.props;
+const phone = "85291688089";
+const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+<a href={href} target="_blank" rel="noopener" class="btn-seal whatsapp-btn">
+  WhatsApp 查詢
+</a>
