@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+const igBrand = "https://www.instagram.com/Skate_Matters";
+---
+<BaseLayout title="品牌">
+  <section class="brand-page">
+    <h1>Skate Matters</h1>
+    <p class="intro">
+      源自對滑板文化的熱愛，Skate Matters 希望把滑板不只當成一項運動，
+      更是一種生活態度 —— 跌倒、站起來、再嘗試一次。
+      最新消息與日常分享，歡迎追蹤品牌 Instagram。
+    </p>
+
+    <div class="follow-row">
+      <a href={igBrand} target="_blank" rel="noopener" class="ig-link">
+        品牌 Instagram @Skate_Matters
+      </a>
+    </div>
+
+    <div class="cta-block">
+      <p>想了解課程或合作機會，歡迎直接查詢</p>
+      <WhatsAppButton message="你好，我想了解 Skate Matters" />
+    </div>
+  </section>
+
+  <style>
+    .brand-page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.2rem;
+      text-align: center;
+    }
+    .brand-page h1 {
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      color: var(--seal-red);
+      margin-bottom: 0.8rem;
+    }
+    .intro {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .follow-row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .ig-link {
+      border: 2px solid var(--wood);
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      text-decoration: none !important;
+      color: var(--indigo) !important;
+      font-size: 0.9rem;
+    }
+    .cta-block {
+      background: var(--indigo);
+      color: var(--cream);
+      padding: clamp(1.5rem, 5vw, 2rem);
+    }
+    .cta-block p {
+      margin-bottom: 1rem;
+    }
+  </style>
+</BaseLayout>

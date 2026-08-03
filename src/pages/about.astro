@@ -1,0 +1,83 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+
+const ctaMessage = "你好，我想查詢滑板課程";
+---
+<BaseLayout title="關於教練">
+  <section class="about-page">
+    <h1>關於教練</h1>
+    <p class="intro">
+      多年來專注滑板教學，陪伴不同年齡層的學員從零開始，
+      一步步建立平衡感、技巧與自信心，享受滑板帶來的樂趣。
+    </p>
+
+    <div class="info-block">
+      <h2>教練資歷</h2>
+      <ul>
+        <li>中國香港滾軸運動及滑板總會一級註冊教練（2020年起）</li>
+        <li>自2018年教學至今</li>
+        <li>教學經驗超過100位學生</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <h2>教學理念</h2>
+      <p>
+        相信每位學員都能用自己的步伐學會滑板。教學會因應學員的年齡、
+        能力與目標調整進度，無論是零基礎入門，還是想突破技巧瓶頸，
+        都會以安全、循序漸進的方式陪伴學員進步。
+      </p>
+    </div>
+
+    <div class="cta-block">
+      <p>想預約課程或了解更多，歡迎直接查詢</p>
+      <WhatsAppButton message={ctaMessage} />
+    </div>
+  </section>
+
+  <style>
+    .about-page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(2rem, 6vw, 3.5rem) 1.2rem;
+      text-align: center;
+    }
+    .about-page h1 {
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      color: var(--seal-red);
+      margin-bottom: 0.8rem;
+    }
+    .intro {
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .info-block {
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+    .info-block h2 {
+      color: var(--seal-red);
+      border-bottom: 3px solid var(--sunset);
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+    .info-block p {
+      line-height: 1.7;
+    }
+    .info-block ul {
+      line-height: 1.9;
+      padding-left: 1.4rem;
+    }
+    .cta-block {
+      background: var(--indigo);
+      color: var(--cream);
+      padding: clamp(1.5rem, 5vw, 2rem);
+      text-align: center;
+    }
+    .cta-block p {
+      margin-bottom: 1rem;
+    }
+  </style>
+</BaseLayout>
